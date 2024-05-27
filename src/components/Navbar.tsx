@@ -3,11 +3,15 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-300  sticky  z-50 top-0 left-0 right-0  ">
         <div className="flex-1 navbar-start">
-          <a className="btn btn-ghost text-xl capitalize">posts task</a>
+          <a className="btn btn-ghost text-xl capitalize">posts</a>
         </div>
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn m-1 btn-ghost ">
-            Theme
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn m-1 btn-ghost capitalize "
+          >
+            theme
             <svg
               width="12px"
               height="12px"
