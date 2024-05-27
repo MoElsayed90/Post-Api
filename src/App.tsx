@@ -1,14 +1,14 @@
-import { useState } from "react"
-import Navbar from "./components/Navbar"
-import Posts from "./components/PostsList"
-import { Post } from "./components/interfaces"
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Posts from "./components/PostsList";
+import { Post } from "./components/interfaces";
 
 const App = () => {
-  const [selectPost, setSelectedPost] = useState<Post | null>(null)
+  const [selectPost, setSelectedPost] = useState<Post | null>(null);
   const onSelectPost = (post: Post) => {
-    setSelectedPost(post)
-    console.log(selectPost)
-  }
+    setSelectedPost(post);
+    console.log(selectPost);
+  };
 
   return (
     <>
@@ -18,9 +18,8 @@ const App = () => {
           <Posts onSelectPost={onSelectPost} />
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
