@@ -14,19 +14,28 @@ const Posts: FC<IProps> = ({ onSelectPost }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postsPerPage, setPostsPerPage] = useState<number>(10);
   useEffect(() => {
-    const fetchPosts = async () => {
-      const PostsResp = await axiosInstance.get("/posts");
-      setPosts(PostsResp.data);
-    };
-    fetchPosts();
+    try {
+      const fetchPosts = async () => {
+        const PostsResp = await axiosInstance.get("/posts");
+        setPosts(PostsResp.data);
+      };
+      fetchPosts();
+    } catch (error) {
+      console.log(error)
+    }
+
   }, []);
   const [comments, setComments] = useState<Comments[]>([]);
   useEffect(() => {
+  try {
     const fetchComments = async () => {
       const CommentsResp = await axiosInstance.get("/comments");
       setComments(CommentsResp.data);
     };
     fetchComments();
+  } catch (error) {
+    console.log(error)
+  }
   }, []);
 
   const handleSerachInput = (searchInput: string) => {
@@ -74,7 +83,7 @@ const Posts: FC<IProps> = ({ onSelectPost }) => {
                     <>
                       <div className="">
                         <p className="text-lg font-bold px-5">
-                          {comment.name} ({comment.email})
+                          {comment.name}  ({comment.email})
                         </p>
                         <p className="px-5">{comment.body}</p>
                       </div>
